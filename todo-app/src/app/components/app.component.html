@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card">
+    <h1>My Todo List</h1>
+
+    <div class="panel">
+      <div>
+        <input type="text" [(ngModel)]="newTodo" placeholder="Write something here...">
+      </div>
+      <div class="text-align-end">
+        <button (click)="onAddTodo()"><em class='fas fa-plus'></em> Add Todo</button>
+      </div>
+    </div>
+
+    <div class="inner-card">
+      <ul *ngFor="let todo of (todoList$ | async)">
+        <li>{{todo}}</li>
+      </ul>
+
+    </div>
+
+    <div class="panel text-align-end">
+      <button (click)="onEmptyList()"><em class='fas fa-trash'></em> Empty List</button>
+    </div>
+
+  </div>
+</div>

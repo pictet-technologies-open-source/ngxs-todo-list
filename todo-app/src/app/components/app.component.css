@@ -1,0 +1,27 @@
+.card {
+  border-radius: 5px;
+  box-shadow:  5px 5px 10px #c4c5ca, -5px -5px 10px #ffffff;
+  height: calc(100vh - 60px);
+  margin: 10px auto;
+  min-width: 500px;
+  padding: 20px 50px;
+  text-align: center;
+  width: 35vw;
+}
+
+.inner-card {
+  border-radius: 5px;
+  box-shadow:  5px 5px 10px #c4c5ca, -5px -5px 10px #ffffff;
+  height: calc(100vh - 310px);
+  padding: 20px;
+  text-align: left;
+  overflow: auto;
+}
+
+.text-align-end {
+  text-align: end;
+}
+
+.panel {
+  margin: 10px 20px;
+}
