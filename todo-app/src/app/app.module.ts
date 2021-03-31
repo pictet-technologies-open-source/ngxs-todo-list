@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {NgxsModule} from '@ngxs/store';
 import {environment} from '../environments/environment';
 import {TodoState} from './store/todo.state';
+import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import {TodoState} from './store/todo.state';
     FormsModule,
     NgxsModule.forRoot([TodoState], {
       developmentMode: !environment.production
+    }),
+    NgxsLoggerPluginModule.forRoot({
+      disabled: environment.production
     }),
   ],
   providers: [],
