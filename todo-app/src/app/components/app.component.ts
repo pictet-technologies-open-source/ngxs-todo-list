@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   constructor(private readonly store: Store) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new LoadAllTodos);
+    this.store.dispatch(new LoadAllTodos());
   }
 
   onAddTodo(): void {

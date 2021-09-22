@@ -2,11 +2,16 @@ import {NgxsModule, Store} from '@ngxs/store';
 import {TestBed} from '@angular/core/testing';
 import {TodoState} from './todo.state';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AddTodo, EmptyTodo} from './todo.actions';
+import {AddTodo, EmptyTodo, LoadAllTodos} from './todo.actions';
+import {instance, mock, resetCalls, when} from 'ts-mockito';
+import {TodoService} from '../services/todo.service';
+import {of} from 'rxjs';
 
 describe('TodoState', () => {
   let store: Store;
 
+  const serviceMock = mock(TodoService);
+  const service: TodoService = instance(serviceMock);
 
   // TEST DATA
 
@@ -22,8 +27,12 @@ describe('TodoState', () => {
         NgxsModule.forRoot([TodoState]),
         HttpClientTestingModule,
       ],
+      providers: [
+        {provide: TodoService, useValue: service},
+      ]
     });
     store = TestBed.get(Store);
+    resetCalls(serviceMock);
 
     store.reset(STATE_INIT);
   });
@@ -44,6 +53,19 @@ describe('TodoState', () => {
   });
 
   describe('ACTIONS', () => {
+    describe('loadAllTodos', () => {
+      it('should set todos coming from the service into TodoList', () => {
+
+        when(serviceMock.loadAllTodos()).thenReturn(of(['newTodo']));
+
+        store.dispatch(new LoadAllTodos());
+
+        const snapshot = store.selectSnapshot(state => state.todo);
+        expect(snapshot.todoList.length).toBe(1);
+        expect(snapshot.todoList).toContain('newTodo');
+      });
+    });
+
     describe('addTodo', () => {
       it('should add a todo to TodoList from the state', () => {
         store.dispatch(new AddTodo('todo2'));

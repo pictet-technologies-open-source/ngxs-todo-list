@@ -6,7 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {TodoState} from '../store/todo.state';
 import {FormsModule} from '@angular/forms';
 import {of} from 'rxjs';
-import {AddTodo, EmptyTodo} from '../store/todo.actions';
+import {AddTodo, EmptyTodo, LoadAllTodos} from '../store/todo.actions';
 
 describe('AppComponent', () => {
 
@@ -48,6 +48,8 @@ describe('AppComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+
+    verify(storeMock.dispatch(anyOfClass(LoadAllTodos))).once();
   });
 
   describe('onAddTodo', () => {
@@ -64,7 +66,7 @@ describe('AppComponent', () => {
 
       verify(storeMock.dispatch(anyOfClass(AddTodo))).once();
 
-      const arg: AddTodo[] = capture(storeMock.dispatch).first();
+      const arg: AddTodo[] = capture(storeMock.dispatch).second();
       expect(arg.length).toEqual(1);
       expect(arg[0].newTodo).toEqual('newTodo');
     });
