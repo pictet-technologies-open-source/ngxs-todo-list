@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Select, Store} from '@ngxs/store';
-import {AddTodo, EmptyTodo} from '../store/todo.actions';
+import {AddTodo, EmptyTodo, LoadAllTodos} from '../store/todo.actions';
 import {TodoState} from '../store/todo.state';
 import {Observable} from 'rxjs';
 
@@ -9,13 +9,17 @@ import {Observable} from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   @Select(TodoState.getTodoList) todoList$?: Observable<string[]>;
 
   newTodo = '';
 
   constructor(private readonly store: Store) {}
+
+  ngOnInit(): void {
+    this.store.dispatch(new LoadAllTodos);
+  }
 
   onAddTodo(): void {
     if (this.newTodo.length > 0) {
