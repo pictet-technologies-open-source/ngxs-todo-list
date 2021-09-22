@@ -8,6 +8,7 @@ import {NgxsModule} from '@ngxs/store';
 import {environment} from '../environments/environment';
 import {TodoState} from './store/todo.state';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
+import {TodoService} from './services/todo.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
       disabled: environment.production
     }),
   ],
-  providers: [],
+  providers: [
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,7 @@
+export class LoadAllTodos {
+  static readonly type = '[Todo] Load All';
+}
+
 export class AddTodo {
   static readonly type = '[Todo] Add';
 
