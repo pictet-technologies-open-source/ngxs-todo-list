@@ -18,7 +18,7 @@ import {TodoService} from './services/todo.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxsModule.forRoot([TodoState], {
+    NgxsModule.forRoot([], {
       developmentMode: !environment.production
     }),
     NgxsLoggerPluginModule.forRoot({
