@@ -1,4 +1,4 @@
-import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {anyOfClass, capture, instance, mock, resetCalls, verify, when} from 'ts-mockito';
 import {NgxsModule, Store} from '@ngxs/store';
