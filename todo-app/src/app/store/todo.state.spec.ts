@@ -4,17 +4,13 @@ import {TodoState} from './todo.state';
 describe('TodoState', () => {
 
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [],
+            providers: []
+        });
 
-      ],
-      providers: [
-
-      ]
     });
-
-  });
 
 });
 

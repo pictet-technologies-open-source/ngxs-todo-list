@@ -2,21 +2,22 @@ import {Component} from '@angular/core';
 import {of} from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
-  todoList$ = of([]);
+    todoList$ = of([]);
 
-  newTodo = '';
+    newTodo = '';
 
-  constructor() {}
+    constructor() {
+    }
 
-  onAddTodo(): void {
-  }
+    onAddTodo(): void {
+    }
 
-  onEmptyList(): void {
-  }
+    onEmptyList(): void {
+    }
 }

@@ -6,28 +6,28 @@ import {AppComponent} from './components/app.component';
 import {FormsModule} from '@angular/forms';
 import {NgxsModule} from '@ngxs/store';
 import {environment} from '../environments/environment';
-import {TodoState} from './store/todo.state';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
 import {TodoService} from './services/todo.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    NgxsModule.forRoot([], {
-      developmentMode: !environment.production
-    }),
-    NgxsLoggerPluginModule.forRoot({
-      disabled: environment.production
-    }),
-  ],
-  providers: [
-    TodoService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        NgxsModule.forRoot([], {
+            developmentMode: !environment.production
+        }),
+        NgxsLoggerPluginModule.forRoot({
+            disabled: environment.production
+        }),
+    ],
+    providers: [
+        TodoService
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

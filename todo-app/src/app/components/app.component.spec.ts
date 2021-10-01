@@ -4,32 +4,30 @@ import {FormsModule} from '@angular/forms';
 
 describe('AppComponent', () => {
 
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+    let component: AppComponent;
+    let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        FormsModule,
-      ],
-      declarations: [
-        AppComponent,
-      ],
-      providers: [
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                FormsModule,
+            ],
+            declarations: [
+                AppComponent,
+            ],
+            providers: []
+        }).compileComponents();
+    }));
 
-      ]
-    }).compileComponents();
-  }));
+    beforeEach(() => {
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.componentInstance;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-
-    fixture.detectChanges();
-  });
+        fixture.detectChanges();
+    });
 
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
