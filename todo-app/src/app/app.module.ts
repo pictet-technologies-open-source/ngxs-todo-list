@@ -8,6 +8,7 @@ import {NgxsModule} from '@ngxs/store';
 import {environment} from '../environments/environment';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
 import {TodoService} from './services/todo.service';
+import {TodoState} from './store/todo.state';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,7 @@ import {TodoService} from './services/todo.service';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        NgxsModule.forRoot([], {
+        NgxsModule.forRoot([TodoState], {
             developmentMode: !environment.production
         }),
         NgxsLoggerPluginModule.forRoot({
